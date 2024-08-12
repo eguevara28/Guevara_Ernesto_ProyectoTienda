@@ -26,10 +26,10 @@ public class Guevara_Ernesto_ProyectoI {
             System.out.println("Seleccione una opcion:");
             System.out.println("1) Abrir Caja");
             System.out.println("2) Salir del Sistema");
-            int op=0;
-            try{
-            op = lea.nextInt();
-            }catch(Exception e){
+            int op = 0;
+            try {
+                op = lea.nextInt();
+            } catch (Exception e) {
                 System.out.println("En este campo solo se debe ingresar numeros");
                 lea.nextLine();
             }
@@ -148,12 +148,9 @@ public class Guevara_Ernesto_ProyectoI {
                                                 : (producto.equals("Maiz")) ? 20 : 0;
 
                                         if (codigop == 1 || codigop == 2 || codigop == 3 || codigop == 4) {
-                                            System.out.println("Cuantos kilogramos de este producto desea?: ");
-                                            kg = lea.nextInt();
+                                                kg = lea.nextInt();
                                             if (kg > 0) {
                                                 if (codigop == 1 && azucar >= kg || codigop == 2 && avena >= kg || codigop == 3 && trigo >= kg || codigop == 4 && maiz >= kg) {
-
-                                                    ventas++;
 
                                                     if (producto.equals("Azucar")) {
                                                         azucar -= kg;
@@ -179,7 +176,7 @@ public class Guevara_Ernesto_ProyectoI {
                                                     subtotal += pago;
                                                     lista += "Producto: " + producto + "\nCantidad (kg): " + kg + "\nPrecio por kilogramo: " + precioventa + "\n";
 
-                                                    System.out.println("Desea comprar otro producto? (s/n)");
+                                                    System.out.println("Desea comprar otro producto? Escriba n para pasar a facturacion, o escriba cualquier otra letra para comprar otro producto: ");
                                                     char otro = lea.next().toUpperCase().charAt(0);
 
                                                     if (otro == 'N') {
@@ -212,6 +209,7 @@ public class Guevara_Ernesto_ProyectoI {
                                                         System.out.println("*******************************************\n");
                                                         dinerorecaudado += total;
                                                         caja += total;
+                                                        ventas++;
                                                         if (total > masganancia) {
                                                             masganancia = total;
                                                             listamasganancia = lista;
@@ -237,7 +235,13 @@ public class Guevara_Ernesto_ProyectoI {
                                         System.out.println("----------------------------------------------------------------");
                                         System.out.println("Escriba 5 para salir");
                                         System.out.println("Ingrese el codigo del producto que desea?: ");
-                                        int codigop = lea.nextInt();
+                                        int codigop = 0;
+                                        try {
+                                            codigop = lea.nextInt();
+                                        } catch (Exception e) {
+                                            System.out.println("En este campo se deben ingresar numeros");
+                                            lea.nextLine();
+                                        }
 
                                         if (codigop == 5) {
                                             break;
@@ -247,7 +251,7 @@ public class Guevara_Ernesto_ProyectoI {
                                             System.out.println("No puedes comprar este producto");
                                         }
 
-                                        if (codigop != 1 && codigop != 2 && codigop != 3 && codigop != 4) {
+                                        if (codigop != 1 && codigop != 2 && codigop != 3 && codigop != 4 && codigop != 5 && codigop != 0) {
                                             System.out.println("Este producto no existe");
                                         }
 
@@ -261,10 +265,9 @@ public class Guevara_Ernesto_ProyectoI {
 
                                         if (codigop == 1 || codigop == 2 || codigop == 3) {
                                             System.out.println("Cuantos kilogramos de este producto desea?: ");
-                                            kg = lea.nextInt();
+                                                kg = lea.nextInt();
                                             if (kg > 0) {
                                                 if (codigop == 1 && azucar >= kg || codigop == 2 && avena >= kg || codigop == 3 && trigo >= kg) {
-                                                    ventas++;
 
                                                     if (producto.equals("Azucar")) {
                                                         azucarvendido += kg;
@@ -281,7 +284,7 @@ public class Guevara_Ernesto_ProyectoI {
                                                     subtotal += pago;
                                                     lista += "Producto: " + producto + "\nCantidad (kg): " + kg + "\nPrecio por kilogramo: " + precioventa + "\n";
 
-                                                    System.out.println("Desea comprar otro producto? (s/n): ");
+                                                    System.out.println("Desea comprar otro producto? Escriba n para pasar a facturacion, o escriba cualquier otra letra para comprar otro producto: ");
                                                     char otro = lea.next().toUpperCase().charAt(0);
 
                                                     if (otro == 'N') {
@@ -314,6 +317,7 @@ public class Guevara_Ernesto_ProyectoI {
                                                         System.out.println("*******************************************\n");
                                                         caja += total;
                                                         dinerorecaudado += total;
+                                                        ventas++;
                                                         if (total > masganancia) {
                                                             masganancia = total;
                                                             listamasganancia = lista;
@@ -325,7 +329,7 @@ public class Guevara_Ernesto_ProyectoI {
                                                     break;
                                                 }
                                             } else {
-                                                System.out.println("No se pueden ingresar numeros negativos");
+                                                System.out.println("No se aceptan valores que no sean numericos ni que sean 0 o menos");
                                             }
                                         }
                                     }
@@ -337,8 +341,13 @@ public class Guevara_Ernesto_ProyectoI {
                                         System.out.println("----------------------------------------------------------------");
                                         System.out.println("Escriba 5 para salir");
                                         System.out.println("Ingrese el codigo del producto que desea?: ");
-                                        int codigop = lea.nextInt();
-
+                                        int codigop = 0;
+                                        try {
+                                            codigop = lea.nextInt();
+                                        } catch (Exception e) {
+                                            System.out.println("En este campo solo se pueden ingresar numeros");
+                                            lea.nextLine();
+                                        }
                                         if (codigop == 5) {
                                             break;
                                         }
@@ -357,16 +366,15 @@ public class Guevara_Ernesto_ProyectoI {
                                         if (codigop == 1 || codigop == 2 || codigop == 3) {
                                             System.out.println("No puedes comprar este producto");
                                         }
-                                        if (codigop != 1 && codigop != 2 && codigop != 3 && codigop != 4) {
+                                        if (codigop != 1 && codigop != 2 && codigop != 3 && codigop != 4 && codigop != 5 && codigop != 0) {
                                             System.out.println("Este producto no existe");
                                         }
 
                                         if (codigop == 4) {
                                             System.out.println("Cuantos kilogramos de este producto desea?: ");
-                                            kg = lea.nextInt();
+                                                kg = lea.nextInt();
                                             if (kg > 0) {
                                                 if (kg <= maiz) {
-                                                    ventas++;
 
                                                     if (producto.equals("Maiz")) {
                                                         maizvendido += kg;
@@ -375,7 +383,7 @@ public class Guevara_Ernesto_ProyectoI {
                                                     double pago = kg * precioventa;
                                                     subtotal += pago;
                                                     lista += "Producto: " + producto + "\nCantidad (kg): " + kg + "\nPrecio por kilogramo: " + precioventa + "\n";
-                                                    System.out.println("Desea comprar otro producto? (s/n): ");
+                                                    System.out.println("Desea comprar otro producto? Escriba n para pasar a facturacion, o escriba cualquier otra letra para comprar otro producto: ");
                                                     char otro = lea.next().toUpperCase().charAt(0);
 
                                                     if (otro == 'N') {
@@ -406,6 +414,7 @@ public class Guevara_Ernesto_ProyectoI {
                                                         System.out.println("*******************************************\n");
                                                         caja += total;
                                                         dinerorecaudado += total;
+                                                        ventas++;
                                                         if (total > masganancia) {
                                                             masganancia = total;
                                                             listamasganancia = lista;
@@ -417,7 +426,7 @@ public class Guevara_Ernesto_ProyectoI {
                                                 }
                                                 break;
                                             } else {
-                                                System.out.println("No se aceptan numeros negativos");
+                                                System.out.println("No se aceptan valores que no sean numericos ni que sean 0 o menos");
                                             }
                                         }
 
@@ -431,7 +440,7 @@ public class Guevara_Ernesto_ProyectoI {
                             while (true) {
                                 String lista = "", producto;
                                 double subtotal = 0;
-                                int kg;
+                                int kg = 0;
                                 int preciocompra;
                                 System.out.println("Ingrese que tipo de proveedor es usted: ");
                                 char TipoProveedor = lea.next().toUpperCase().charAt(0);
@@ -448,13 +457,18 @@ public class Guevara_Ernesto_ProyectoI {
                                         System.out.println("--------------------------------------------------");
                                         System.out.println("Escriba 5 para salir");
                                         System.out.println("Ingrese el codigo del producto que desea: ");
-                                        int codigop = lea.nextInt();
-
+                                        int codigop = 0;
+                                        try {
+                                            codigop = lea.nextInt();
+                                        } catch (Exception e) {
+                                            System.out.println("En este campo se deben ingresar numeros");
+                                            lea.nextLine();
+                                        }
                                         if (codigop == 5) {
                                             break;
                                         }
 
-                                        if (codigop != 1 && codigop != 2 && codigop != 3 && codigop != 4 && codigop != 5) {
+                                        if (codigop != 1 && codigop != 2 && codigop != 3 && codigop != 4 && codigop != 5 && codigop != 0) {
                                             System.out.println("Esta no es una opcion");
                                         }
 
@@ -463,7 +477,12 @@ public class Guevara_Ernesto_ProyectoI {
 
                                         if (codigop == 2) {
                                             System.out.println("Cuantos kilos comprara?: ");
-                                            kg = lea.nextInt();
+                                            try {
+                                                kg = lea.nextInt();
+                                            } catch (Exception e) {
+                                                System.out.println("En este campo se deben ingresar numeros");
+                                                lea.nextLine();
+                                            }
                                             if (kg > 0) {
                                                 double pago = kg * preciocompra;
                                                 if (pago <= caja) {
@@ -513,8 +532,13 @@ public class Guevara_Ernesto_ProyectoI {
                                         System.out.println("--------------------------------------------------");
                                         System.out.println("Escriba 5 para salir");
                                         System.out.println("Ingrese el codigo del producto que desea: ");
-                                        int codigop = lea.nextInt();
-
+                                        int codigop = 0;
+                                        try {
+                                            codigop = lea.nextInt();
+                                        } catch (Exception e) {
+                                            System.out.println("En este campo se deben ingresar numeros");
+                                            lea.nextLine();
+                                        }
                                         producto = (codigop == 2) ? "Avena"
                                                 : (codigop == 3) ? "Trigo" : "No Existe";
 
@@ -529,13 +553,18 @@ public class Guevara_Ernesto_ProyectoI {
                                             break;
                                         }
 
-                                        if (codigop != 1 && codigop != 4 && codigop != 2 && codigop != 3 && codigop != 5) {
+                                        if (codigop != 1 && codigop != 4 && codigop != 2 && codigop != 3 && codigop != 5 && codigop != 0) {
                                             System.out.println("Esta no es una opcion");
                                         }
 
                                         if (codigop == 2 || codigop == 3) {
                                             System.out.println("Cuantos kilos comprara?: ");
-                                            kg = lea.nextInt();
+                                            try {
+                                                kg = lea.nextInt();
+                                            } catch (Exception e) {
+                                                System.out.println("En este campo se deben ingresar numeros");
+                                                lea.nextLine();
+                                            }
                                             if (kg > 0) {
                                                 double pago = kg * preciocompra;
                                                 if (pago <= caja) {
@@ -570,7 +599,7 @@ public class Guevara_Ernesto_ProyectoI {
                                                     break;
                                                 }
                                             } else {
-                                                System.out.println("No se aceptan numeros negativos");
+                                                System.out.println("No se aceptan valores que no sean numericos ni que sean 0 o menos");
                                             }
                                         }
                                     }
@@ -583,8 +612,13 @@ public class Guevara_Ernesto_ProyectoI {
                                         System.out.println("--------------------------------------------------");
                                         System.out.println("Escriba 5 para salir");
                                         System.out.println("Ingrese el codigo del producto que desea: ");
-                                        int codigop = lea.nextInt();
-
+                                        int codigop = 0;
+                                        try {
+                                            codigop = lea.nextInt();
+                                        } catch (Exception e) {
+                                            System.out.println("En este campo se deben ingresar numeros");
+                                            lea.nextLine();
+                                        }
                                         if (codigop == 5) {
                                             break;
                                         }
@@ -593,7 +627,7 @@ public class Guevara_Ernesto_ProyectoI {
                                             System.out.println("No vende este producto");
                                         }
 
-                                        if (codigop != 1 && codigop != 2 && codigop != 3 && codigop != 4 && codigop != 5) {
+                                        if (codigop != 1 && codigop != 2 && codigop != 3 && codigop != 4 && codigop != 5 && codigop != 0) {
                                             System.out.println("Esta no es una opcion");
                                         }
 
@@ -605,8 +639,12 @@ public class Guevara_Ernesto_ProyectoI {
 
                                         if (codigop == 1 || codigop == 4) {
                                             System.out.println("Cuantos kilos comprara?: ");
-                                            kg = lea.nextInt();
-
+                                            try {
+                                                kg = lea.nextInt();
+                                            } catch (Exception e) {
+                                                System.out.println("En este campo se deben ingresar numeros");
+                                                lea.nextLine();
+                                            }
                                             if (kg > 0) {
                                                 double pago = kg * preciocompra;
                                                 if (pago <= caja) {
@@ -644,7 +682,7 @@ public class Guevara_Ernesto_ProyectoI {
                                                     break;
                                                 }
                                             } else {
-                                                System.out.println("No se aceptan numeros negativos");
+                                                System.out.println("No se aceptan valores que no sean numericos ni que sean 0 o menos");
                                             }
                                         }
                                     }
@@ -698,222 +736,61 @@ public class Guevara_Ernesto_ProyectoI {
 
                             String p1 = "", p2 = "", p3 = "", p4 = "";
                             int v1 = 0, v2 = 0, v3 = 0, v4 = 0;
-                            if (maizvendido > trigovendido && trigovendido > azucarvendido && azucarvendido > avenavendida) {
+
+                            if (maizvendido >= trigovendido && maizvendido >= avenavendida && maizvendido >= azucarvendido) {
                                 p1 = "Maíz";
-                                p2 = "Trigo";
-                                p3 = "Azúcar";
-                                p4 = "Avena";
                                 v1 = maizvendido;
-                                v2 = trigovendido;
-                                v3 = azucarvendido;
-                                v4 = avenavendida;
-                            } else if (maizvendido > trigovendido && trigovendido > avenavendida && avenavendida > azucarvendido) {
-                                p1 = "Maíz";
-                                p2 = "Trigo";
-                                p3 = "Avena";
-                                p4 = "Azúcar";
-                                v1 = maizvendido;
-                                v2 = trigovendido;
-                                v3 = avenavendida;
-                                v4 = azucarvendido;
-                            } else if (maizvendido > azucarvendido && azucarvendido > trigovendido && trigovendido > avenavendida) {
-                                p1 = "Maíz";
-                                p2 = "Azúcar";
-                                p3 = "Trigo";
-                                p4 = "Avena";
-                                v1 = maizvendido;
-                                v2 = azucarvendido;
-                                v3 = trigovendido;
-                                v4 = avenavendida;
-                            } else if (maizvendido > azucarvendido && azucarvendido > avenavendida && avenavendida > trigovendido) {
-                                p1 = "Maíz";
-                                p2 = "Azúcar";
-                                p3 = "Avena";
-                                p4 = "Trigo";
-                                v1 = maizvendido;
-                                v2 = azucarvendido;
-                                v3 = avenavendida;
-                                v4 = trigovendido;
-                            } else if (maizvendido > avenavendida && avenavendida > trigovendido && trigovendido > azucarvendido) {
-                                p1 = "Maíz";
-                                p2 = "Avena";
-                                p3 = "Trigo";
-                                p4 = "Azúcar";
-                                v1 = maizvendido;
-                                v2 = avenavendida;
-                                v3 = trigovendido;
-                                v4 = azucarvendido;
-                            } else if (maizvendido > avenavendida && avenavendida > azucarvendido && azucarvendido > trigovendido) {
-                                p1 = "Maíz";
-                                p2 = "Avena";
-                                p3 = "Azúcar";
-                                p4 = "Trigo";
-                                v1 = maizvendido;
-                                v2 = avenavendida;
-                                v3 = azucarvendido;
-                                v4 = trigovendido;
-                            } else if (trigovendido > maizvendido && maizvendido > azucarvendido && azucarvendido > avenavendida) {
+                            } else if (trigovendido >= maizvendido && trigovendido >= avenavendida && trigovendido >= azucarvendido) {
                                 p1 = "Trigo";
-                                p2 = "Maíz";
-                                p3 = "Azúcar";
-                                p4 = "Avena";
                                 v1 = trigovendido;
-                                v2 = maizvendido;
-                                v3 = azucarvendido;
-                                v4 = avenavendida;
-                            } else if (trigovendido > maizvendido && maizvendido > avenavendida && avenavendida > azucarvendido) {
-                                p1 = "Trigo";
-                                p2 = "Maíz";
-                                p3 = "Avena";
-                                p4 = "Azúcar";
-                                v1 = trigovendido;
-                                v2 = maizvendido;
-                                v3 = avenavendida;
-                                v4 = azucarvendido;
-                            } else if (trigovendido > azucarvendido && azucarvendido > maizvendido && maizvendido > avenavendida) {
-                                p1 = "Trigo";
-                                p2 = "Azúcar";
-                                p3 = "Maíz";
-                                p4 = "Avena";
-                                v1 = trigovendido;
-                                v2 = azucarvendido;
-                                v3 = maizvendido;
-                                v4 = avenavendida;
-                            } else if (trigovendido > azucarvendido && azucarvendido > avenavendida && avenavendida > maizvendido) {
-                                p1 = "Trigo";
-                                p2 = "Azúcar";
-                                p3 = "Avena";
-                                p4 = "Maíz";
-                                v1 = trigovendido;
-                                v2 = azucarvendido;
-                                v3 = avenavendida;
-                                v4 = maizvendido;
-                            } else if (trigovendido > avenavendida && avenavendida > maizvendido && maizvendido > azucarvendido) {
-                                p1 = "Trigo";
-                                p2 = "Avena";
-                                p3 = "Maíz";
-                                p4 = "Azúcar";
-                                v1 = trigovendido;
-                                v2 = avenavendida;
-                                v3 = maizvendido;
-                                v4 = azucarvendido;
-                            } else if (trigovendido > avenavendida && avenavendida > azucarvendido && azucarvendido > maizvendido) {
-                                p1 = "Trigo";
-                                p2 = "Avena";
-                                p3 = "Azúcar";
-                                p4 = "Maíz";
-                                v1 = trigovendido;
-                                v2 = avenavendida;
-                                v3 = azucarvendido;
-                                v4 = maizvendido;
-                            } else if (azucarvendido > maizvendido && maizvendido > trigovendido && trigovendido > avenavendida) {
-                                p1 = "Azúcar";
-                                p2 = "Maíz";
-                                p3 = "Trigo";
-                                p4 = "Avena";
-                                v1 = azucarvendido;
-                                v2 = maizvendido;
-                                v3 = trigovendido;
-                                v4 = avenavendida;
-                            } else if (azucarvendido > maizvendido && maizvendido > avenavendida && avenavendida > trigovendido) {
-                                p1 = "Azúcar";
-                                p2 = "Maíz";
-                                p3 = "Avena";
-                                p4 = "Trigo";
-                                v1 = azucarvendido;
-                                v2 = maizvendido;
-                                v3 = avenavendida;
-                                v4 = trigovendido;
-                            } else if (azucarvendido > trigovendido && trigovendido > maizvendido && maizvendido > avenavendida) {
-                                p1 = "Azúcar";
-                                p2 = "Trigo";
-                                p3 = "Maíz";
-                                p4 = "Avena";
-                                v1 = azucarvendido;
-                                v2 = trigovendido;
-                                v3 = maizvendido;
-                                v4 = avenavendida;
-                            } else if (azucarvendido > trigovendido && trigovendido > avenavendida && avenavendida > maizvendido) {
-                                p1 = "Azúcar";
-                                p2 = "Trigo";
-                                p3 = "Avena";
-                                p4 = "Maíz";
-                                v1 = azucarvendido;
-                                v2 = trigovendido;
-                                v3 = avenavendida;
-                                v4 = maizvendido;
-                            } else if (azucarvendido > avenavendida && avenavendida > maizvendido && maizvendido > trigovendido) {
-                                p1 = "Azúcar";
-                                p2 = "Avena";
-                                p3 = "Maíz";
-                                p4 = "Trigo";
-                                v1 = azucarvendido;
-                                v2 = avenavendida;
-                                v3 = maizvendido;
-                                v4 = trigovendido;
-                            } else if (azucarvendido > avenavendida && avenavendida > trigovendido && trigovendido > maizvendido) {
-                                p1 = "Azúcar";
-                                p2 = "Avena";
-                                p3 = "Trigo";
-                                p4 = "Maíz";
-                                v1 = azucarvendido;
-                                v2 = avenavendida;
-                                v3 = trigovendido;
-                                v4 = maizvendido;
-                            } else if (avenavendida > maizvendido && maizvendido > trigovendido && trigovendido > azucarvendido) {
+                            } else if (avenavendida >= maizvendido && avenavendida >= trigovendido && avenavendida >= azucarvendido) {
                                 p1 = "Avena";
-                                p2 = "Maíz";
-                                p3 = "Trigo";
-                                p4 = "Azúcar";
                                 v1 = avenavendida;
-                                v2 = maizvendido;
-                                v3 = trigovendido;
-                                v4 = azucarvendido;
-                            } else if (avenavendida > maizvendido && maizvendido > azucarvendido && azucarvendido > trigovendido) {
-                                p1 = "Avena";
-                                p2 = "Maíz";
-                                p3 = "Azúcar";
-                                p4 = "Trigo";
-                                v1 = avenavendida;
-                                v2 = maizvendido;
-                                v3 = azucarvendido;
-                                v4 = trigovendido;
-                            } else if (avenavendida > trigovendido && trigovendido > maizvendido && maizvendido > azucarvendido) {
-                                p1 = "Avena";
-                                p2 = "Trigo";
-                                p3 = "Maíz";
-                                p4 = "Azúcar";
-                                v1 = avenavendida;
-                                v2 = trigovendido;
-                                v3 = maizvendido;
-                                v4 = azucarvendido;
-                            } else if (avenavendida > trigovendido && trigovendido > azucarvendido && azucarvendido > maizvendido) {
-                                p1 = "Avena";
-                                p2 = "Trigo";
-                                p3 = "Azúcar";
-                                p4 = "Maíz";
-                                v1 = avenavendida;
-                                v2 = trigovendido;
-                                v3 = azucarvendido;
-                                v4 = maizvendido;
-                            } else if (avenavendida > azucarvendido && azucarvendido > maizvendido && maizvendido > trigovendido) {
-                                p1 = "Avena";
-                                p2 = "Azúcar";
-                                p3 = "Maíz";
-                                p4 = "Trigo";
-                                v1 = avenavendida;
-                                v2 = azucarvendido;
-                                v3 = maizvendido;
-                                v4 = trigovendido;
                             } else {
-                                p1 = "Avena";
+                                p1 = "Azúcar";
+                                v1 = azucarvendido;
+                            }
+
+                            if ((maizvendido >= trigovendido && maizvendido >= avenavendida && maizvendido >= azucarvendido && maizvendido < v1) || (maizvendido == v1 && p1 != "Maíz")) {
+                                p2 = "Maíz";
+                                v2 = maizvendido;
+                            } else if ((trigovendido >= maizvendido && trigovendido >= avenavendida && trigovendido >= azucarvendido && trigovendido < v1) || (trigovendido == v1 && p1 != "Trigo")) {
+                                p2 = "Trigo";
+                                v2 = trigovendido;
+                            } else if ((avenavendida >= maizvendido && avenavendida >= trigovendido && avenavendida >= azucarvendido && avenavendida < v1) || (avenavendida == v1 && p1 != "Avena")) {
+                                p2 = "Avena";
+                                v2 = avenavendida;
+                            } else {
                                 p2 = "Azúcar";
-                                p3 = "Trigo";
-                                p4 = "Maíz";
-                                v1 = avenavendida;
                                 v2 = azucarvendido;
+                            }
+
+                            if ((maizvendido >= trigovendido && maizvendido >= avenavendida && maizvendido >= azucarvendido && maizvendido < v2 && maizvendido < v1) || (maizvendido == v2 && !"Maíz".equals(p2))) {
+                                p3 = "Maíz";
+                                v3 = maizvendido;
+                            } else if ((trigovendido >= maizvendido && trigovendido >= avenavendida && trigovendido >= azucarvendido && trigovendido < v2 && trigovendido < v1) || (trigovendido == v2 && !"Trigo".equals(p2))) {
+                                p3 = "Trigo";
                                 v3 = trigovendido;
+                            } else if ((avenavendida >= maizvendido && avenavendida >= trigovendido && avenavendida >= azucarvendido && avenavendida < v2 && avenavendida < v1) || (avenavendida == v2 && !"Avena".equals(p2))) {
+                                p3 = "Avena";
+                                v3 = avenavendida;
+                            } else {
+                                p3 = "Azúcar";
+                                v3 = azucarvendido;
+                            }
+
+                            if (!p1.equals("Maíz") && !p2.equals("Maíz") && !p3.equals("Maíz")) {
+                                p4 = "Maíz";
                                 v4 = maizvendido;
+                            } else if (!p1.equals("Trigo") && !p2.equals("Trigo") && !p3.equals("Trigo")) {
+                                p4 = "Trigo";
+                                v4 = trigovendido;
+                            } else if (!p1.equals("Avena") && !p2.equals("Avena") && !p3.equals("Avena")) {
+                                p4 = "Avena";
+                                v4 = avenavendida;
+                            } else {
+                                p4 = "Azúcar";
+                                v4 = azucarvendido;
                             }
 
                             System.out.println("Ranking de ventas:");
@@ -927,9 +804,16 @@ public class Guevara_Ernesto_ProyectoI {
                         if (op2 == 5) {
                             while (true) {
                                 System.out.println("Cerrando caja...");
+                                System.out.println("Dinero en caja actualmente: "+caja);
                                 System.out.println("Dinero en el banco actualmente: " + banco + " .lps");
                                 System.out.println("Cuanto dinero quiere depositar al banco?: ");
-                                double deposito = lea.nextDouble();
+                                double deposito = 0;
+                                try{
+                                    deposito = lea.nextDouble();
+                                }catch(Exception e){
+                                    System.out.println("En este campo se deben ingresar numeros");
+                                    lea.nextLine();
+                                }
                                 double porcentajedeposito = deposito / caja;
                                 if (porcentajedeposito <= 0.6) {
                                     System.out.println("Se ha depositado+ " + deposito + " lps en el banco");
