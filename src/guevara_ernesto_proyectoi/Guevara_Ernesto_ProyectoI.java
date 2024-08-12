@@ -820,18 +820,20 @@ public class Guevara_Ernesto_ProyectoI {
                         if (op2 == 5) {
                             while (true) {
                                 System.out.println("Cerrando caja...");
-                                System.out.println("Dinero en caja actualmente: "+caja);
+                                System.out.println("Dinero en caja actualmente: "+caja+" .lps");
                                 System.out.println("Dinero en el banco actualmente: " + banco + " .lps");
                                 System.out.println("Cuanto dinero quiere depositar al banco?: ");
                                 double deposito = 0;
+                                double porcentajedeposito = 1;
                                 try{
                                     deposito = lea.nextDouble();
+                                    porcentajedeposito = deposito / caja;
                                 }catch(Exception e){
                                     System.out.println("En este campo se debe colocar numeros");
+                                    lea.nextLine();
                                 }
-                                double porcentajedeposito = deposito / caja;
                                 if (porcentajedeposito <= 0.6) {
-                                    System.out.println("Se ha depositado+ " + deposito + " lps en el banco");
+                                    System.out.println("Se ha depositado " + deposito + " lps en el banco");
                                     banco += deposito;
                                     System.out.println("Cantidad en el banco: " + banco);
                                     dia++;
