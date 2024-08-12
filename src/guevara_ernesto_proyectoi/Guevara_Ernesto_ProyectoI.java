@@ -148,7 +148,13 @@ public class Guevara_Ernesto_ProyectoI {
                                                 : (producto.equals("Maiz")) ? 20 : 0;
 
                                         if (codigop == 1 || codigop == 2 || codigop == 3 || codigop == 4) {
+                                            System.out.println("Cuantos kilogramos de este producto desea?: ");
+                                            try {
                                                 kg = lea.nextInt();
+                                            } catch (Exception e) {
+                                                System.out.println("En este campo se deben ingresar numeros");
+                                                lea.nextLine();
+                                            }
                                             if (kg > 0) {
                                                 if (codigop == 1 && azucar >= kg || codigop == 2 && avena >= kg || codigop == 3 && trigo >= kg || codigop == 4 && maiz >= kg) {
 
@@ -265,7 +271,12 @@ public class Guevara_Ernesto_ProyectoI {
 
                                         if (codigop == 1 || codigop == 2 || codigop == 3) {
                                             System.out.println("Cuantos kilogramos de este producto desea?: ");
+                                            try {
                                                 kg = lea.nextInt();
+                                            } catch (Exception e) {
+                                                System.out.println("En este campo se deben ingresar numeros");
+                                                lea.nextLine();
+                                            }
                                             if (kg > 0) {
                                                 if (codigop == 1 && azucar >= kg || codigop == 2 && avena >= kg || codigop == 3 && trigo >= kg) {
 
@@ -372,7 +383,12 @@ public class Guevara_Ernesto_ProyectoI {
 
                                         if (codigop == 4) {
                                             System.out.println("Cuantos kilogramos de este producto desea?: ");
+                                            try {
                                                 kg = lea.nextInt();
+                                            } catch (Exception e) {
+                                                System.out.println("En este campo se deben ingresar numeros");
+                                                lea.nextLine();
+                                            }
                                             if (kg > 0) {
                                                 if (kg <= maiz) {
 
@@ -811,8 +827,7 @@ public class Guevara_Ernesto_ProyectoI {
                                 try{
                                     deposito = lea.nextDouble();
                                 }catch(Exception e){
-                                    System.out.println("En este campo se deben ingresar numeros");
-                                    lea.nextLine();
+                                    System.out.println("En este campo se debe colocar numeros");
                                 }
                                 double porcentajedeposito = deposito / caja;
                                 if (porcentajedeposito <= 0.6) {
